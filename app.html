@@ -2,7 +2,7 @@
 <html lang="en" class="h-100">
 
 <head>
-    <title>APP NAME by Nick Seyler</title>
+    <title>TacoCat by Nick Seyler</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -32,7 +32,7 @@
         <div class="container-fluid">
             <a class="navbar-brand" href="index.html">
                 <img src="/img/NSDarkLogo.jpg" height="24" class="d-inline-block align-text-top px-2" />
-                APP NAME
+                TacoCat
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
                 aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -64,31 +64,36 @@
                 <!-- Descriptions -->
                 <div class="col">
                     <div class="row">
-                        <h1>APPNAME: A Coding Challenge</h1>
+                        <h1>TacoCat: A Coding Challenge</h1>
                         <h4 class="lead">
-                            Your project's description goes here.
+                            Reverse a palindrome. A JavaScript exercise using arrays. Write a program that determines if a string is a palindrome.
+                            The program accounts for special characters and whitespace.
                         </h4>
                         <h2 class="mt-3">Instructions</h2>
-                        <p>Enter an input.</p>
+                        <p>Enter an string. Press the button to determine if the stirng is a palindrome.</p>
                     </div>
                 </div>
+
                 <!-- Input and Output -->
                 <div class="col border-start border-5">
                     <h3>Enter Input</h3>
                     <form class="row">
                         <div class="col-12">
-                            <label for="inputValue" class="form-label">Message</label>
-                            <input id="message" name="message" class="form-control" type="text"
-                                placeholder="Enter message" value="message" aria-label="Message">
+                            <label for="inputValue" class="form-label">Enter a String</label>
+                            <input id="userStr" name="userStr" class="form-control" type="text"
+                                placeholder="Enter a String" value="A man, a plan, a canal, Panama" aria-label="User String">
                         </div>
                         <div class="col-12 d-flex justify-content-start justify-content-md-end mt-3">
-                            <button id="btnSubmit" type="button" class="btn btn-primary">Message!</button>
+                            <button id="btnSubmit" type="button" class="btn btn-primary">Check it!</button>
                         </div>
                     </form>
                     <h2 class="mt-5 border-bottom border-5">Results</h2>
-                    <p id="something">
-                        <!-- Generate Something-->
-                    </p>
+                    <div id="alertPalindrome" class="alert mt-5 d-none fade show" role="alert">
+                        <h4 class="alert-heading">We checked it!</h4>
+                        <p id="alertPalindromeMessage">
+                            <!-- Generate True or False -->
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -128,7 +133,7 @@
     <!-- Custom JS -->
     <script src="/js/site.js"></script>
     <script>
-        document.getElementById("btnSubmit").addEventListener("click", getMessage);
+        document.getElementById("btnSubmit").addEventListener("click", getInput);
     </script>
 </body>
 
