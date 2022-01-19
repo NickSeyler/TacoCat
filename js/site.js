@@ -4,7 +4,7 @@ function getInput() {
 
     let isPalindrome = checkPalindrome(userStr);
 
-    displayData(isPalindrome);
+    displayData(userStr, isPalindrome);
 }
 
 //Input: String
@@ -28,18 +28,18 @@ function checkPalindrome(str) {
     return revStr == modifiedStr;
 }
 
-//Input: Boolean
+//Input: , Boolean
 //Return: None
-//Display whether or not the item is a palindrome
-function displayData(isPalindrome) {
+//Display whether or not the string is a palindrome
+function displayData(userStr, isPalindrome) {
 
     if (isPalindrome){
-        document.getElementById("alertPalindromeMessage").innerHTML = `Yes, it's a palindrome!`;
+        document.getElementById("alertPalindromeMessage").innerHTML = `Yes, ${userStr} is a palindrome!`;
         document.getElementById("alertPalindrome").classList.remove("alert-danger");
         document.getElementById("alertPalindrome").classList.add("alert-success");
     }
     else{
-        document.getElementById("alertPalindromeMessage").innerHTML = `No, it's not a palindrome!`;
+        document.getElementById("alertPalindromeMessage").innerHTML = `No, ${userStr} is not a palindrome!`;
         document.getElementById("alertPalindrome").classList.remove("alert-success");
         document.getElementById("alertPalindrome").classList.add("alert-danger");
     }
