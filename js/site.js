@@ -2,17 +2,19 @@
 function getInput() {
     let userStr = document.getElementById("userStr").value;
 
-    let isPalindrome = checkPalindrome(userStr);
+    let returnObj = checkPalindrome(userStr);
 
-    displayData(userStr, isPalindrome);
+    displayData(returnObj);
 }
 
-//Input: String
-//Return: Boolean
+//Expected Input: String
+//Expected Return: Objected {String, String, Boolean}
 //Check for palindrome
 function checkPalindrome(str) {
     let modifiedStr = "";
     let revStr = "";
+    let isPalindrome = false;
+    let returnObj = {};
 
     //remove special characters
     for (let i = 0; i < str.length; i++){
@@ -25,21 +27,29 @@ function checkPalindrome(str) {
         revStr += modifiedStr[i];
     }
 
-    return revStr == modifiedStr;
+    isPalindrome = revStr == modifiedStr;
+
+    returnObj["userStr"] = str;
+    returnObj["revStr"] = revStr;
+    returnObj["isPalindrome"] = isPalindrome;
+
+    return returnObj;
 }
 
-//Input: , Boolean
-//Return: None
+//Expected Input: Object {String, String, Boolean}
+//Expected Return: None
 //Display whether or not the string is a palindrome
-function displayData(userStr, isPalindrome) {
+function displayData(obj) {
 
-    if (isPalindrome){
-        document.getElementById("alertPalindromeMessage").innerHTML = `Yes, ${userStr} is a palindrome!`;
+    if (obj["isPalindrome"]){
+        document.getElementById("alertPalindromeMessage").innerHTML = `Yes, ${obj["userStr"]} is a palindrome!
+            <br/> Reversed String: ${obj["revStr"]}`;
         document.getElementById("alertPalindrome").classList.remove("alert-danger");
         document.getElementById("alertPalindrome").classList.add("alert-success");
     }
     else{
-        document.getElementById("alertPalindromeMessage").innerHTML = `No, ${userStr} is not a palindrome!`;
+        document.getElementById("alertPalindromeMessage").innerHTML = `No, ${obj["userStr"]} is not a palindrome!
+            <br/> Reversed String: ${obj["revStr"]}`;
         document.getElementById("alertPalindrome").classList.remove("alert-success");
         document.getElementById("alertPalindrome").classList.add("alert-danger");
     }
