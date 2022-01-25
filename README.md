@@ -7,4 +7,4 @@ determines if a string is a palindrome. The program accounts for special charact
 and will tell you which characters are removed.
 
 ## Demo The Project
-[nickseyler-tacocat.netlify.app](nickseyler-tacocat.netlify.app)
+[https://nickseyler-tacocat.netlify.app](https://nickseyler-tacocat.netlify.app)
