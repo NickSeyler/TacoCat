@@ -71,11 +71,11 @@
                         <code class="language-js">
                             //get the input from the user
                             function getInput() {
-                            let userStr = document.getElementById("userStr").value;
+                                let userStr = document.getElementById("userStr").value;
 
-                            let returnObj = checkPalindrome(userStr);
+                                let returnObj = checkPalindrome(userStr);
 
-                            displayData(returnObj);
+                                displayData(returnObj);
                             }
                         </code>
                     </pre>
@@ -91,15 +91,20 @@
                         <code class="language-js">
                             //Check for palindrome
                             function checkPalindrome(str) {
-                            let modifiedStr = "";
-                            let revStr = "";
-                            let isPalindrome = false;
-                            let returnObj = {};
+                                let modifiedStr = "";
+                                let revStr = "";
+                                let isPalindrome = false;
+                                let returnObj = {};
 
-                            //remove special characters
-                            for (let i = 0; i &lt; str.length; i++){ if ((/[0-9a-zA-Z]/).test(str[i])){ modifiedStr
-                                +=str[i].toLowerCase(); } } for (let i=modifiedStr.length - 1; i>= 0; i--) {
-                                revStr += modifiedStr[i];
+                                //remove special characters
+                                for (let i = 0; i &lt; str.length; i++){
+                                    if ((/[0-9a-zA-Z]/).test(str[i])){
+                                        modifiedStr += str[i].toLowerCase();
+                                    }
+                                }
+
+                                for (let i = modifiedStr.length - 1; i >= 0; i--) {
+                                    revStr += modifiedStr[i];
                                 }
 
                                 isPalindrome = revStr == modifiedStr;
@@ -109,7 +114,7 @@
                                 returnObj["isPalindrome"] = isPalindrome;
 
                                 return returnObj;
-                                }
+                            }
                         </code>
                     </pre>
                 </div>
