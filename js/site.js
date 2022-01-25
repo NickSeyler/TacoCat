@@ -1,4 +1,4 @@
-//get the string from the user
+//get the input from the user
 function getInput() {
     let userStr = document.getElementById("userStr").value;
 

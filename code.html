@@ -65,27 +65,90 @@
         <div class="container mt-5 px-5">
             <h2 class="border-1 border-bottom border-dark">The Code</h2>
             <div class="row">
+
                 <div class="col-12 col-lg-8">
                     <pre class="line-numbers">
                         <code class="language-js">
-                            //Display message to the user
-                            function getMessage(){
-                                let userMessage = document.getElementById("message").value;
-                                Swal.fire(
-                                    'The App Title',
-                                    userMessage,
-                                    'success'
-                                );
-                            }                       
+                            //get the input from the user
+                            function getInput() {
+                            let userStr = document.getElementById("userStr").value;
+
+                            let returnObj = checkPalindrome(userStr);
+
+                            displayData(returnObj);
+                            }
                         </code>
                     </pre>
                 </div>
                 <div class="col-12 col-lg-4">
-                    <p>The code is structured in one function.
-                        It accesses the user's input then displays a Sweetalert alert window.</p>
-                    <h5>getMessage</h5>
-                    <p>Prints the user's inputted message.</p>
+                    <h5>getInput</h5>
+                    <p>Get the input from the webpage.</p>
                 </div>
+
+                <div class="col-12 col-lg-8">
+                    <pre class="line-numbers">
+                        <code class="language-js">
+                            //Check for palindrome
+                            function checkPalindrome(str) {
+                            let modifiedStr = "";
+                            let revStr = "";
+                            let isPalindrome = false;
+                            let returnObj = {};
+
+                            //remove special characters
+                            for (let i = 0; i &lt str.length; i++){ if ((/[0-9a-zA-Z]/).test(str[i])){ modifiedStr
+                                +=str[i].toLowerCase(); } } for (let i=modifiedStr.length - 1; i>= 0; i--) {
+                                revStr += modifiedStr[i];
+                                }
+
+                                isPalindrome = revStr == modifiedStr;
+
+                                returnObj["userStr"] = str;
+                                returnObj["revStr"] = revStr;
+                                returnObj["isPalindrome"] = isPalindrome;
+
+                                return returnObj;
+                                }
+                        </code>
+                    </pre>
+                </div>
+                <div class="col-12 col-lg-4">
+                    <h5>checkPalindrome</h5>
+                    <p>Check if the input is a palindrome.</p>
+                </div>
+
+                <div class="col-12 col-lg-8">
+                    <pre class="line-numbers">
+                        <code class="language-js">
+                            //Display whether or not the string is a palindrome
+                            function displayData(obj) {
+
+                                if (obj["isPalindrome"]){
+                                    document.getElementById("alertPalindromeMessage").innerHTML = `Yes, ${obj["userStr"]} is a palindrome!
+                                        &ltbr/&gt Reversed String: ${obj["revStr"]}`;
+                                    document.getElementById("alertPalindrome").classList.remove("alert-danger");
+                                    document.getElementById("alertPalindrome").classList.add("alert-success");
+                                }
+                                else{
+                                    document.getElementById("alertPalindromeMessage").innerHTML = `No, ${obj["userStr"]} is not a palindrome!
+                                        &ltbr/&gt Reversed String: ${obj["revStr"]}`;
+                                    document.getElementById("alertPalindrome").classList.remove("alert-success");
+                                    document.getElementById("alertPalindrome").classList.add("alert-danger");
+                                }
+                                document.getElementById("alertPalindrome").classList.remove("d-none");
+                            }
+                        </code>
+                    </pre>
+                </div>
+                <div class="col-12 col-lg-4">
+                    <h5>displayData</h5>
+                    <p>Display the original string, modified string, 
+                        and whether or not the two are equivalent.
+                    </p>
+                </div>
+
+                
+
             </div>
         </div>
     </main>
