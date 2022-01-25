@@ -64,8 +64,8 @@
     <main class="flex-shrink-0">
         <div class="container mt-5 px-5">
             <h2 class="border-1 border-bottom border-dark">The Code</h2>
-            <div class="row">
 
+            <div class="row">
                 <div class="col-12 col-lg-8">
                     <pre class="line-numbers">
                         <code class="language-js">
@@ -84,7 +84,8 @@
                     <h5>getInput</h5>
                     <p>Get the input from the webpage.</p>
                 </div>
-
+            </div>
+            <div class="row">
                 <div class="col-12 col-lg-8">
                     <pre class="line-numbers">
                         <code class="language-js">
@@ -96,7 +97,7 @@
                             let returnObj = {};
 
                             //remove special characters
-                            for (let i = 0; i &lt str.length; i++){ if ((/[0-9a-zA-Z]/).test(str[i])){ modifiedStr
+                            for (let i = 0; i &lt; str.length; i++){ if ((/[0-9a-zA-Z]/).test(str[i])){ modifiedStr
                                 +=str[i].toLowerCase(); } } for (let i=modifiedStr.length - 1; i>= 0; i--) {
                                 revStr += modifiedStr[i];
                                 }
@@ -116,7 +117,9 @@
                     <h5>checkPalindrome</h5>
                     <p>Check if the input is a palindrome.</p>
                 </div>
+            </div>
 
+            <div class="row">
                 <div class="col-12 col-lg-8">
                     <pre class="line-numbers">
                         <code class="language-js">
@@ -125,13 +128,13 @@
 
                                 if (obj["isPalindrome"]){
                                     document.getElementById("alertPalindromeMessage").innerHTML = `Yes, ${obj["userStr"]} is a palindrome!
-                                        &ltbr/&gt Reversed String: ${obj["revStr"]}`;
+                                        &lt;br/&gt; Reversed String: ${obj["revStr"]}`;
                                     document.getElementById("alertPalindrome").classList.remove("alert-danger");
                                     document.getElementById("alertPalindrome").classList.add("alert-success");
                                 }
                                 else{
                                     document.getElementById("alertPalindromeMessage").innerHTML = `No, ${obj["userStr"]} is not a palindrome!
-                                        &ltbr/&gt Reversed String: ${obj["revStr"]}`;
+                                        &lt;br/&gt; Reversed String: ${obj["revStr"]}`;
                                     document.getElementById("alertPalindrome").classList.remove("alert-success");
                                     document.getElementById("alertPalindrome").classList.add("alert-danger");
                                 }
@@ -146,10 +149,8 @@
                         and whether or not the two are equivalent.
                     </p>
                 </div>
-
-                
-
             </div>
+            
         </div>
     </main>
 
